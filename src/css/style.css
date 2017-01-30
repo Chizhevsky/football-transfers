@@ -40,15 +40,17 @@ body {
   background: #00C853;
 }
 
-#navbar nav a,
-#navbar nav li {
+#navbar nav .link-rout ,
+#navbar nav li,
+#navbar nav a {
   font-family: 'Roboto', sans-serif;
   color: #FFFFFF;
   font-size: 25px;
   font-weight: bold;
 }
 
-#navbar nav li a {
+#navbar nav li .link-rout,
+#navbar nav a {
   font-size: 23px;
   font-weight: normal;
 }
@@ -100,16 +102,19 @@ header i.fa-handshake-o {
   border: 1px solid #00C853;
 }
 
-#new-transf button.col-md-2 {
+#new-transf .col-lg-2 button {
   width: 130px;
+  height: 35px;
   border: none;
   border-radius: 50px;
   background-color: #E8F5E9;
   font-weight: bold;
   letter-spacing: 1px;
-  margin: 5px auto;
+  margin: 0px auto;
+  text-align: center;
 }
 
-#new-transf button.col-md-2:hover {
+#new-transf .col-lg-2 button:hover {
   background-color: #00E676;
+  color: #ffffff;
 }

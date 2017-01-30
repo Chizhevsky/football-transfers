@@ -1,14 +1,8 @@
 import React from 'react';
 
-import Nav from './Nav';
-import Table from './Table';
-import NewTransf from './NewTransf';
-
 export default class Header extends React.Component {
   render() {
     return (
-      <div>
-        <Nav />
         <header>
           <div class="container">
             <div class="row text-center">
@@ -19,9 +13,6 @@ export default class Header extends React.Component {
             </div>
           </div>
         </header>
-        <Table />
-        <NewTransf />
-      </div>
     );
   }
 }

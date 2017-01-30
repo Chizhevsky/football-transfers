@@ -1,4 +1,5 @@
 import React from 'react';
+import { IndexLink, Link } from 'react-router';
 
 export default class Nav extends React.Component {
   render() {
@@ -17,8 +18,8 @@ export default class Nav extends React.Component {
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Last</a></li>
-                <li><a href="#">New</a></li>
+                <li><Link class="link-rout" to="/">Last</Link></li>
+                <li><Link class="link-rout" to="/new">New</Link></li>
               </ul>
             </div>
           </div>
