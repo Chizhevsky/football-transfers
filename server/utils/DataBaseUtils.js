@@ -1,8 +1,5 @@
 var mongoose = require('mongoose');
 
-//require('../models/Transfer');
-//var Transfer = mongoose.model('Transfer');
-
 var Schema = mongoose.Schema;
 
 var TransferSchema = new Schema({
@@ -12,7 +9,6 @@ var TransferSchema = new Schema({
   money   : {type: String, required: true}
 });
 
-//var Transfer =
 mongoose.model('Transfer', TransferSchema);
 
 var Transfer = mongoose.model('Transfer');
@@ -22,6 +18,7 @@ exports.setUpConnection = function()  {
 }
 
 exports.listTransfers = function() {
+  var Transfer = mongoose.model('Transfer');
   return Transfer.find();
 }
 

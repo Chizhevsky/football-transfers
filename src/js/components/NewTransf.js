@@ -14,7 +14,6 @@ export default class Table extends React.Component {
   }
   createTransfer () {
     const v = this.inputsValue;
-    console.log(v.name, v.oldClub, v.newClub, v.money);
     TransfersActions.createTransfer(v.name, v.oldClub, v.newClub, v.money);
   }
   changeName(e) {

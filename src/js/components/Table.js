@@ -12,7 +12,14 @@ export default class Table extends React.Component {
   componentWillMount() {
     transfersStore.on('change', () => {
       this.setState({
-        transfers: transfersStore.getAll()
+        transfers: transfersStore.getAll(),
+      });
+    });
+  }
+  componentWillUnmount() {
+    TodoStore.removeListener("change", () => {
+      this.setState({
+        transfers: transfersStore.getAll(),
       });
     });
   }
@@ -21,7 +28,7 @@ export default class Table extends React.Component {
 
     const transfersTR = transfers.map( (trans) => {
       return (
-        <tr>
+        <tr key={trans.id}>
           <td>{ trans.name }</td>
           <td>{ trans.oldClub }</td>
           <td>{ trans.newClub }</td>
@@ -36,13 +43,15 @@ export default class Table extends React.Component {
           <div class="row">
             <div class="col-sm-12 col-md-10 col-md-offset-1">
               <table class="table text-center">
-                <tr>
-                  <th>Name</th>
-                  <th>Old club</th>
-                  <th>New club</th>
-                  <th>Money $</th>
-                </tr>
-                { transfersTR }
+                <tbody>
+                  <tr>
+                    <th>Name</th>
+                    <th>Old club</th>
+                    <th>New club</th>
+                    <th>Money $</th>
+                  </tr>
+                  { transfersTR }
+                </tbody>
               </table>
             </div>
           </div>

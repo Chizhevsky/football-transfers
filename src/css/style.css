@@ -80,8 +80,8 @@ header i.fa-handshake-o {
   margin: 50px 0;
 }
 
-#table-transfers .table tr th,
-#table-transfers .table tr td {
+#table-transfers .table tbody tr th,
+#table-transfers .table tbody tr td {
   font-size: medium;
   color: #424242;
   text-align: center;

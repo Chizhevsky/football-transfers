@@ -1,11 +1,12 @@
 import { EventEmitter } from 'events';
+import axios from 'axios';
 
 import dispatcher from '../dispatcher';
 
 class TransfersStore extends EventEmitter {
   constructor() {
     super();
-    this.transfersStore = [
+    this.transfersStore = axios.get('http://localhost:3000/transfers'); /*[
       {
         id: 123456789,
         name: 'Ozil',
@@ -27,7 +28,7 @@ class TransfersStore extends EventEmitter {
         newClub: 'Arsenal',
         money: '7 000 000'
       }
-    ];
+    ];*/
   }
   getAll() {
     return this.transfersStore;
