@@ -6,43 +6,27 @@ import dispatcher from '../dispatcher';
 class TransfersStore extends EventEmitter {
   constructor() {
     super();
-    this.transfersStore = axios.get('http://localhost:3000/transfers'); /*[
-      {
-        id: 123456789,
-        name: 'Ozil',
-        oldClub: 'Real Madrid',
-        newClub: 'Arsenal',
-        money: '35 000 000'
-      },
-      {
-        id: 123456987,
-        name: 'Alexis Sanches',
-        oldClub: 'Barcelona',
-        newClub: 'Arsenal',
-        money: '30 000 000'
-      },
-      {
-        id: 987654321,
-        name: 'Petr Cech',
-        oldClub: 'Chelsea',
-        newClub: 'Arsenal',
-        money: '7 000 000'
-      }
-    ];*/
+    this.transfersStore = axios.get('http://localhost:3000/transfers');
   }
   getAll() {
     return this.transfersStore;
   }
   createTransfer(name, oldClub, newClub, money) {
-    const id = Date.now();
+    /*const id = Date.now();
     this.transfersStore.push({
       id,
       name,
       oldClub,
       newClub,
       money
-    });
-    this.emit('change');
+    });*/
+    axios.post('http://localhost:3000/transfers', {name: name, oldClub: oldClub, newClub: newClub, money: money})
+    .then( function() {
+        this.emit('change');
+    }.bind(this))
+    .catch( function(err) {
+      console.log(err);
+    } );
   }
   handleActions(action) {
     switch(action.type) {

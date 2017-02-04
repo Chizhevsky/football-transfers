@@ -6,26 +6,37 @@ export default class Table extends React.Component {
   constructor() {
     super();
     this.state = {
-      transfers: transfersStore.getAll(),
-    }
+      transfers: []
+    };
+  }
+  componentDidMount() {
+    transfersStore.getAll().then( function(response) {
+      this.setState({
+        transfers: response.data,
+      });
+    }.bind(this));
   }
   componentWillMount() {
     transfersStore.on('change', () => {
-      this.setState({
-        transfers: transfersStore.getAll(),
-      });
+      transfersStore.getAll().then( function(response) {
+        this.setState({
+          transfers: response.data,
+        });
+      }.bind(this));
     });
   }
   componentWillUnmount() {
-    TodoStore.removeListener("change", () => {
-      this.setState({
-        transfers: transfersStore.getAll(),
-      });
+    transfersStore.on('change', () => {
+      transfersStore.getAll().then( function(response) {
+        this.setState({
+          transfers: response.data,
+        });
+      }.bind(this));
     });
   }
   render() {
     const { transfers } = this.state;
-
+    console.log(transfers);
     const transfersTR = transfers.map( (trans) => {
       return (
         <tr key={trans.id}>

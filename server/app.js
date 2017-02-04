@@ -13,12 +13,13 @@ app.use(cors({ origin: '*' }));
 
 app.get('/transfers', function(req, res) {
   db.listTransfers().then( function(data) {
+    console.log(data);
     res.send(data);
   });
 });
 
 app.post('/transfers', function (req, res) {
-  db.createNote(req.body).then( function(data) {
+  db.createTransfer(req.body).then( function(data) {
     res.send(data);
   });
 })
